@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react'
 import {Container, Row, Col} from "react-bootstrap"
 import {ArrowRightCircle} from "react-bootstrap-icons"
 import headerImg from "../assets/images/header-img.svg"
+import 'animate.css'
+import TrackVisibility from 'react-on-screen'
 
 function Banner() {
 
     const [loopNum, setLoopNum] = useState(0)
     const [isDeleting, setIsDeleting] = useState(false)
-    const toRotate = ["Web developer" , "Web Desinger"];
+    const toRotate = ["Web developer" , "Web Designer"];
     const [text, setText] = useState('')
     const [delta, setDelta] = useState(300 - Math.random() * 100) 
     const period = 2000
@@ -44,10 +46,8 @@ function Banner() {
         const email = 'shravaniwaghmale@gmail.com';
         const subject = 'Let\'s Connect';
     
-        // Construct the mailto URL with email and subject
         const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
     
-        // Redirect to the mailto URL
         window.location.href = mailtoURL;
     };
 
@@ -56,10 +56,16 @@ function Banner() {
             <Container>
                 <Row className= "align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                        <span className="tagline">Welcome to my Portfolio</span>
-                        <h1>{`Hello I'm Shravani `}<span className="wrap">{text}</span></h1>
-                        <p>Hello I'm Shravani Waghmale. I am a student. I am creating a Project.</p>
-                        <button onClick={handleConnectClick}>Let's Connect<ArrowRightCircle size={25}/></button>
+                        <TrackVisibility>
+                        {({ isVisible }) =>
+                            <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                            <span className="tagline">Welcome to my Portfolio</span>
+                            <h1>{`Hello I'm Shravani `}<span className="wrap">{text}</span></h1>
+                            <p>Hello I'm Shravani Waghmale. I am a student. I am creating a Project.</p>
+                            <button onClick={handleConnectClick}>Let's Connect<ArrowRightCircle size={25}/></button>
+                            </div> 
+                        }             
+                        </TrackVisibility>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
                         <img src={headerImg} alt="Header Img" />

@@ -1,3 +1,4 @@
+import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import arrow1 from "../assets/images/arrow1.svg";
@@ -7,7 +8,7 @@ import meter2 from "../assets/images/meter2.svg";
 import meter3 from "../assets/images/meter3.svg";
 import colorSharp from "../assets/images/color-sharp.png"
 
-export const Skills = () => {
+function Skills() {
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -45,11 +46,11 @@ export const Skills = () => {
                                     <h5>CSS</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="Image" />
+                                    <img src={meter3} alt="Image" />
                                     <h5>JavaScript</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter1} alt="Image" />
+                                    <img src={meter2} alt="Image" />
                                     <h5>Java</h5>
                                 </div>
                                 <div className="item">
@@ -65,3 +66,6 @@ export const Skills = () => {
         </section>
     )
 }
+
+export default Skills
+

@@ -1,6 +1,5 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import React from 'react'
+import { Navbar,Nav,Container } from 'react-bootstrap';
 import {useState, useEffect} from 'react';
 import logo from '../assets/images/logo.svg';
 import navIcon1 from '../assets/images/nav-icon1.svg';
@@ -31,19 +30,16 @@ function NavBar() {
     const handleConnectClick = () => {
         const email = 'shravaniwaghmale@gmail.com';
         const subject = 'Let\'s Connect';
-    
-        // Construct the mailto URL with email and subject
         const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}`;
     
-        // Redirect to the mailto URL
         window.location.href = mailtoURL;
     };
 
     return (
-        <Navbar expand="lg" className={scrolled ? "scrolled" : ""}> 
+        <Navbar expand="md" className={scrolled ? "scrolled" : ""}> 
         <Container>
             <Navbar.Brand href="#home">
-                <img src={logo} alt="" />
+                <img src={logo} alt="Logo" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav">
                 <span className="navbar-toggler-icon"></span>
